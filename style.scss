@@ -1,0 +1,186 @@
+$pale-blue: hsl(225, 100%, 94%);
+$bright-blue: hsl(245, 75%, 52%);
+$bright-blue-shadow: hsla(245, 75%, 52%, 0.12);
+$very-pale-blue: hsl(225, 100%, 98%);
+$desaturated-blue: hsl(224, 23%, 55%);
+$dark-blue: hsl(223, 47%, 23%);
+
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-image: url("./images/pattern-background-desktop.svg");
+  background-position: top;
+  background-repeat: repeat-x;
+  background-color: $pale-blue;
+}
+
+.summary {
+  font-family: "Red Hat Display", sans-serif;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+  text-align: center;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1.5rem 2.5rem $bright-blue-shadow;
+  line-height: 25px;
+}
+
+.summary__header {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.summary__body {
+  padding: 3.25rem 3rem 3.75rem;
+  padding-bottom: 1.8rem;
+
+  .title {
+    color: $dark-blue;
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .text {
+    color: $desaturated-blue;
+    margin-bottom: 1.25rem;
+    padding: 0 0.8rem;
+  }
+
+  .plan {
+    background-color: $very-pale-blue;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+
+    &__icon {
+      padding-right: 1.25rem;
+      width: 48px;
+    }
+
+    &__details {
+      flex: 1;
+
+      div {
+        margin: 0;
+        text-align: left;
+
+        &:first-child {
+          font-weight: 900;
+          color: $dark-blue;
+        }
+
+        &:last-child {
+          color: $desaturated-blue;
+        }
+      }
+    }
+
+    .change {
+      color: $bright-blue;
+      padding: 0;
+      font-size: 0.9rem;
+      font-weight: 900;
+      transition: opacity 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .buttons {
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      font-family: inherit;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .btn-proceed {
+      color: white;
+      background-color: $bright-blue;
+      border-radius: 10px;
+      box-shadow: 0 1rem 1.2rem $bright-blue-shadow;
+      margin-bottom: 1rem;
+      transition: opacity 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .btn-cancel {
+      color: $dark-blue;
+      opacity: 0.7;
+      transition: opacity 0.5s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .summary {
+    max-width: 328px;
+  }
+
+  .summary__body {
+    padding: 2.5rem 1.5rem 1rem;
+
+    .title {
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .text {
+      font-size: 0.93rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .plan {
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+
+      &__details {
+        line-height: 22px;
+      }
+
+      .change {
+        font-size: 0.8rem;
+      }
+    }
+
+    .buttons {
+      .btn-proceed {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
